@@ -6,8 +6,16 @@ import { MaterialIcons } from '@expo/vector-icons';
 import wateringImg from '../assets/watering.png'
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
+import { useNavigation } from '@react-navigation/native';
 
 export function Welcome() {
+
+  const navigation = useNavigation();
+
+  function handleStart() {
+    navigation.navigate('UserIdentification')
+  }
+
   return (
     <SafeAreaView style={styles.container} >
       <View style={styles.wrapper}>
@@ -30,7 +38,8 @@ export function Welcome() {
 
         <TouchableOpacity
           style={styles.button}
-          activeOpacity={0.7}
+          activeOpacity={0.8}
+          onPress={handleStart}
         >
           <MaterialIcons name="arrow-forward-ios" style={styles.buttonIcon} />
         </TouchableOpacity>
