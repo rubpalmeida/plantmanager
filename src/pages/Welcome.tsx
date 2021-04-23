@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingHorizontal: 40,
+    paddingHorizontal: 30,
   },
   title: {
     color: colors.heading,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     fontWeight: "normal",
     lineHeight: 25,
     textAlign: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: 30,
   },
   button: {
     backgroundColor: colors.green,
