@@ -15,20 +15,10 @@ import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { format } from 'date-fns/esm';
+import { PlantProps } from '../libs/storage';
 
 interface Params {
-  plant: {
-    id: string;
-    name: string;
-    about: string;
-    water_tips: string;
-    photo: string;
-    environments: [string];
-    frequency: {
-      times: number;
-      repeat_every: string;
-    }
-  }
+  plant: PlantProps
 }
 
 export function PlantSave() {
