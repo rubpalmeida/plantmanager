@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native'
 
+import { useNavigation } from '@react-navigation/core';
+
 import api from '../services/api';
 
 import { EnviromentButton } from '../components/EnviromentButton';
@@ -31,7 +33,6 @@ interface PlantProps {
 }
 
 export function PlantSelection() {
-
   const [envioroments, setEnviroments] = useState<EnviromentsProps[]>([])
   const [plants, setPlants] = useState<PlantProps[]>([])
   const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([])
@@ -40,7 +41,8 @@ export function PlantSelection() {
 
   const [page, setPage] = useState(1);
   const [loadingMore, setLoadingMore] = useState(false);
-  const [loadedAll, setLoadedAll] = useState(false)
+
+  const navigation = useNavigation();
 
   async function fetchPlants() {
     const { data } = await api
@@ -85,6 +87,10 @@ export function PlantSelection() {
     fetchPlants();
   }
 
+  function handlePlantSelect(plant: PlantProps) {
+    navigation.navigate('PlantSave', { plant })
+  }
+
   useEffect(() => {
     async function fetchEnviroment() {
       const { data } = await api
@@ -127,6 +133,7 @@ export function PlantSelection() {
       <View>
         <FlatList
           data={envioroments}
+          keyExtractor={(item) => String(item.key)}
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.environmentList}
@@ -145,13 +152,14 @@ export function PlantSelection() {
       <View style={styles.plantsContainer}>
         <FlatList
           data={filteredPlants}
+          keyExtractor={(item) => String(item.id)}
           numColumns={2}
           showsVerticalScrollIndicator={false}
           onEndReachedThreshold={0.1}
           onEndReached={({ distanceFromEnd }) => handleFetchMore(distanceFromEnd)}
           renderItem={({ item }) => {
             return (
-              <PlantCardPrimary data={item} />
+              <PlantCardPrimary data={item} onPress={() => handlePlantSelect(item)} />
             )
           }}
           ListFooterComponent={

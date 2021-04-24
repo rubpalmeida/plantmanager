@@ -124,6 +124,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   footer: {
+    width: '100%',
     marginTop: 40,
+    paddingHorizontal: 20
   },
 })

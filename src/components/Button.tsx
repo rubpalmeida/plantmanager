@@ -25,16 +25,15 @@ export function Button({ title, ...rest }: ButtonProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: 231,
+    backgroundColor: colors.green,
     height: 56,
     borderRadius: 16,
-    backgroundColor: colors.green,
-    alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   buttontext: {
-    fontFamily: fonts.heading,
-    fontSize: 17,
-    color: colors.white
+    fontSize: 16,
+    color: colors.white,
+    fontFamily: fonts.heading
   }
-});
+})
