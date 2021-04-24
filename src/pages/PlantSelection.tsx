@@ -44,7 +44,7 @@ export function PlantSelection() {
 
   async function fetchPlants() {
     const { data } = await api
-      .get(`plants?_sort=name&_order=asc&_page=${page}&_limit=7`);
+      .get(`plants?_sort=name&_order=asc&_page=${page}&_limit=8`);
 
     if (!data)
       return setLoading(true)
@@ -156,7 +156,7 @@ export function PlantSelection() {
           }}
           ListFooterComponent={
             loadingMore ?
-              <ActivityIndicator />
+              <ActivityIndicator color={colors.green} />
               : <></>
           }
         />
