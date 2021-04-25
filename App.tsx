@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { StatusBar } from 'react-native';
 
 import AppLoading from 'expo-app-loading';
+
+import * as Notifications from 'expo-notifications'
 
 import {
   useFonts,

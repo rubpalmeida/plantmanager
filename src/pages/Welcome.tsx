@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     color: colors.heading,
     fontFamily: fonts.heading,
     fontSize: 32,
-    fontWeight: "bold",
     textAlign: "center",
     lineHeight: 38,
     marginTop: 38
